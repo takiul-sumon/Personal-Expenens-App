@@ -5,6 +5,9 @@ class Transections {
   String? title;
   int? amount;
   DateTime? date;
-  Transections({
-   @required this.id,@required this.title,@required this.amount,@required this.date});
+  Transections(
+      {@required this.id,
+      @required this.title,
+      @required this.amount,
+      @required this.date});
 }

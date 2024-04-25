@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
-import './transection.dart';
-import 'package:intl/intl_browser.dart';
+import 'package:personal_expenses/widget/new_usertransection.dart';
+import 'package:personal_expenses/widget/transectionlist.dart';
+import 'package:personal_expenses/widget/user_transection.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,9 +19,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-  final List<Transections> transection = [
-    Transections(id: "f", title: "Bag", amount: 50, date: DateTime.now())
-  ];
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,7 @@ class MyHomePage extends StatelessWidget {
         backgroundColor: Colors.cyan,
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Card(
@@ -51,56 +50,8 @@ class MyHomePage extends StatelessWidget {
             color: Colors.lightBlue[400],
             elevation: 5,
           ),
-          Column(
-            children: transection.map((tx) {
-              return Card(
-                child: Row(
-                  children: [
-                    Container(
-                      // height: 100,
-                      // width: 100,
-                      margin:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 253, 249, 249),
-                        border: Border.all(
-                          color: Colors.blue,
-                          width: 1,
-                        ),
-                      ),
-                      // color: Colors.deepOrange,
-                      child: Text(
-                        '\$' + tx.amount.toString(),
-                        style: TextStyle(
-                            fontSize: 15,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      padding: EdgeInsets.all(8),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          tx.title.toString(),
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.lightBlue),
-                        ),
-                        Text(
-                          tx.date.toString(),
-                          style: TextStyle(
-                              fontWeight: FontWeight.w200, color: Colors.grey),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                elevation: 12,
-              );
-            }).toList(),
-          ),
+          Usertransection(),
+          
         ],
       ),
     );
