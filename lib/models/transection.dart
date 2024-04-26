@@ -1,10 +1,12 @@
+
+
 import 'package:flutter/material.dart';
 
 class Transections {
-  String? id;
-  String? title;
-  int? amount;
-  DateTime? date;
+  final String? id;
+ final String? title;
+  final double? amount;
+   final DateTime? date;
   Transections(
       {@required this.id,
       @required this.title,

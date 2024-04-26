@@ -24,7 +24,11 @@ class newtransection extends StatelessWidget {
               controller: amountcontroller,
               decoration: InputDecoration(label: Text("amount")),
             ),
-            ElevatedButton(onPressed: () {}, child: Icon(Icons.input)),
+            ElevatedButton(
+                onPressed: () {
+                  addtx(titlecontroller, double.parse(amountcontroller.toString()));
+                },
+                child: Icon(Icons.input)),
           ],
         ),
       ),
