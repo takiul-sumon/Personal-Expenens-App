@@ -1,5 +1,3 @@
-import 'dart:js_interop';
-
 import 'package:personal_expenses/models/transection.dart';
 import 'package:personal_expenses/widget/new_usertransection.dart';
 import 'transectionlist.dart';
@@ -23,14 +21,17 @@ class _Usertransection extends State<Usertransection> {
         title: txtitle,
         amount: amount,
         date: DateTime.now());
+    setState(() {
+      Usertransection.add(Newtx);
+    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        newtransection(_addnewtransection),
         Transectionlist(Usertransection),
-        newtransection(_addnewtransection)
       ],
     );
   }

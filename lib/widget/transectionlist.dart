@@ -4,7 +4,7 @@ import '../models/transection.dart';
 import 'package:intl/intl.dart';
 
 class Transectionlist extends StatelessWidget {
-  final List<Transections> transections;
+   List<Transections> transections;
   Transectionlist(this.transections);
 
   @override
@@ -27,7 +27,7 @@ class Transectionlist extends StatelessWidget {
                 ),
                 // color: Colors.deepOrange,
                 child: Text(
-                  '\$' + tx.amount.toString(),
+                  '\$ ${tx.amount}',
                   style: TextStyle(
                       fontSize: 15,
                       color: Colors.blue,
@@ -39,7 +39,7 @@ class Transectionlist extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    tx.title.toString(),
+                    '${tx.title}',
                     style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.w600,

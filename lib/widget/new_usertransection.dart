@@ -15,20 +15,20 @@ class newtransection extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-              controller: titlecontroller,
-              autocorrect: true,
-              autofocus: true,
-              decoration: InputDecoration(label: Text("Title")),
+            decoration: InputDecoration(label: Text("Title")),
+            controller: titlecontroller,
             ),
             TextField(
-              controller: amountcontroller,
+              
               decoration: InputDecoration(label: Text("amount")),
+              controller: amountcontroller,
             ),
             ElevatedButton(
-                onPressed: () {
-                  addtx(titlecontroller, double.parse(amountcontroller.toString()));
-                },
-                child: Icon(Icons.input)),
+                child: Icon(Icons.input),onPressed: () {
+                  addtx(titlecontroller.text, double.parse(amountcontroller.text));
+                },)
+                
+            
           ],
         ),
       ),

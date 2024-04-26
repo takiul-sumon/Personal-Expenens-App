@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:personal_expenses/widget/new_usertransection.dart';
-import 'package:personal_expenses/widget/transectionlist.dart';
 import 'package:personal_expenses/widget/user_transection.dart';
 
 void main() {
@@ -51,10 +49,8 @@ class MyHomePage extends StatelessWidget {
             elevation: 5,
           ),
           Usertransection(),
-          
         ],
       ),
     );
   }
 }
-
