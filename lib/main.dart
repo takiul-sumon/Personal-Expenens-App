@@ -35,6 +35,7 @@ class MyHomePage extends StatelessWidget {
             Card(
               child: Text("Chart"),
             ),
+            Usertransection(),
             Card(
               child: Container(
                 width: double.infinity,
@@ -42,14 +43,14 @@ class MyHomePage extends StatelessWidget {
                   child: Text(
                     "List of Tx",
                     style: TextStyle(
-                        color: Color.fromARGB(255, 255, 253, 253), fontSize: 20),
+                        color: Color.fromARGB(255, 255, 253, 253),
+                        fontSize: 20),
                   ),
                 ),
               ),
               color: Colors.lightBlue[400],
               elevation: 5,
             ),
-            Usertransection(),
           ],
         ),
       ),

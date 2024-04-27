@@ -1,6 +1,6 @@
 import 'package:personal_expenses/models/transection.dart';
 import 'package:personal_expenses/widget/new_usertransection.dart';
-import 'transectionlist.dart';
+import './transectionlist.dart';
 
 import 'package:flutter/material.dart';
 
@@ -31,7 +31,7 @@ class _Usertransection extends State<Usertransection> {
     return Column(
       children: <Widget>[
         newtransection(_addnewtransection),
-        Transectionlist(Usertransection),
+        Transectionlist(Usertransection)
       ],
     );
   }

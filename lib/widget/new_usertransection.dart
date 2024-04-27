@@ -7,6 +7,17 @@ class newtransection extends StatelessWidget {
 
   newtransection(this.addtx);
 
+  void submitdata() {
+    final entertitle = titlecontroller.text;
+    final enteramount = double.parse(amountcontroller.text);
+
+    if (entertitle.isEmpty || enteramount < 0) {
+      return;
+    }
+
+    addtx(entertitle, enteramount);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -15,20 +26,29 @@ class newtransection extends StatelessWidget {
         child: Column(
           children: [
             TextField(
-            decoration: InputDecoration(label: Text("Title")),
-            controller: titlecontroller,
+              decoration: InputDecoration(label: Text("Title")),
+              controller: titlecontroller,
+              onSubmitted: (value) {
+                submitdata();
+              },
             ),
             TextField(
-              
               decoration: InputDecoration(label: Text("amount")),
+              keyboardType: TextInputType.number,
               controller: amountcontroller,
+              onSubmitted: (value) {
+                submitdata;
+              },
             ),
             ElevatedButton(
-                child: Icon(Icons.input),onPressed: () {
-                  addtx(titlecontroller.text, double.parse(amountcontroller.text));
-                },)
-                
-            
+              child: Text(
+                "Add Transection",
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              onPressed: () {
+                submitdata();
+              },
+            )
           ],
         ),
       ),
