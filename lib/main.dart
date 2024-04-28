@@ -2,29 +2,51 @@ import 'package:flutter/material.dart';
 import 'package:personal_expenses/widget/transectionlist.dart';
 
 import './widget/new_usertransection.dart';
+
 import './models/transection.dart';
 
 void main() {
   runApp(MyApp());
 }
 
-class MyApp extends StatefulWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
-  State<MyApp> createState() => _MyAppState();
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "Personal Expenses",
+      home: Myhomepage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
 }
 
-class _MyAppState extends State<MyApp> {
-  final List<Transections> Usertransection = [
-    Transections(id: "f", title: "Bag", amount: 50, date: DateTime.now())
+class Myhomepage extends StatefulWidget {
+  const Myhomepage({super.key});
+
+  @override
+  State<Myhomepage> createState() => _MyhomepageState();
+}
+
+class _MyhomepageState extends State<Myhomepage> {
+  final List<Transections> transection = [
+    Transections(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 69.99,
+      date: DateTime.now(),
+    ),
   ];
-  void _addnewtransection(String txtitle, double amount) {
+
+  void _addnewtransection(String txtitle, double txamount) {
     final Newtx = Transections(
         id: DateTime.now().toString(),
         title: txtitle,
-        amount: amount,
+        amount: txamount,
         date: DateTime.now());
     setState(() {
-      Usertransection.add(Newtx);
+      transection.add(Newtx);
     });
   }
 
@@ -41,42 +63,41 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("MY HOME PAGE"),
-          backgroundColor: Colors.cyan,
-          actions: [
-            IconButton(
-                onPressed: () {
-                  _startaddnewtrasnsection(context);
-                },
-                icon: Icon(Icons.add))
+    return Scaffold(
+      // MaterialApp(
+
+      appBar: AppBar(
+        title: Text("MY HOME PAGE"),
+        backgroundColor: Colors.cyan,
+        actions: [
+          IconButton(
+              onPressed: () {
+                _startaddnewtrasnsection(context);
+              },
+              icon: Icon(Icons.add))
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              width: double.infinity,
+              child: Card(
+                child: Text("Chart"),
+              ),
+            ),
+            // Transectionlist(Usertransection),
+            Transectionlist(transection)
           ],
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Container(
-                width: double.infinity,
-                child: Card(
-                  child: Text("Chart"),
-                ),
-              ),
-              // Transectionlist(Usertransection),
-              Transectionlist(Usertransection)
-            ],
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            _startaddnewtrasnsection(context);
-          },
-          child: Icon(Icons.add),
-        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          _startaddnewtrasnsection(context);
+        },
+        child: const Icon(Icons.add),
       ),
     );
   }

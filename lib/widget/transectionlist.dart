@@ -1,12 +1,11 @@
-
 import 'package:flutter/material.dart';
 import '../models/transection.dart';
 
 import 'package:intl/intl.dart';
 
 class Transectionlist extends StatelessWidget {
-  List<Transections> transections;
-  Transectionlist(this.transections);
+  final List<Transections> transections;
+   const Transectionlist(this.transections);
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +29,7 @@ class Transectionlist extends StatelessWidget {
                     ),
                     // color: Colors.deepOrange,
                     child: Text(
-                      '\$ ${transections[index].amount}',
+                      '\$ ${transections[index].amount.toString()}',
                       style: TextStyle(
                           fontSize: 15,
                           color: Colors.blue,
