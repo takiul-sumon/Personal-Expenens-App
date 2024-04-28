@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 
-class newtransection extends StatelessWidget {
-  final Function addtx;
+// class newtransection extends StatefulWidget {
+  
+
+//   @override
+//   State<newtransection> createState() => _newtransectionState();
+// }
+
+// class _newtransectionState extends State<newtransection> {
+
+
+  class newtransection extends StatelessWidget{
+    
   var titlecontroller = TextEditingController();
+
   var amountcontroller = TextEditingController();
+  final Function addtx;
 
   newtransection(this.addtx);
 
@@ -16,6 +28,8 @@ class newtransection extends StatelessWidget {
     }
 
     addtx(entertitle, enteramount);
+
+    // Navigator.of(context).pop();
   }
 
   @override
@@ -48,7 +62,7 @@ class newtransection extends StatelessWidget {
               onPressed: () {
                 submitdata();
               },
-            )
+            ),
           ],
         ),
       ),
