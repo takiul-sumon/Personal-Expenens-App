@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Personal Expenses",
+      theme: ThemeData(backgroundColor: Colors.amberAccent),
       home: Myhomepage(),
       debugShowCheckedModeBanner: false,
     );
@@ -67,7 +68,13 @@ class _MyhomepageState extends State<Myhomepage> {
       // MaterialApp(
 
       appBar: AppBar(
-        title: Text("MY HOME PAGE"),
+        title: Text(
+          "Pesonal Expenses",
+          style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontFamily: 'Heading'),
+        ),
         backgroundColor: Colors.cyan,
         actions: [
           IconButton(
@@ -85,7 +92,11 @@ class _MyhomepageState extends State<Myhomepage> {
             Container(
               width: double.infinity,
               child: Card(
-                child: Text("Chart"),
+                child: Text(
+                  "Chart",
+                  style: TextStyle(
+                      fontFamily: 'Heading', fontWeight: FontWeight.bold),
+                ),
               ),
             ),
             // Transectionlist(Usertransection),

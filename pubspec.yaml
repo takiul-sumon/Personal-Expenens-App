@@ -77,9 +77,9 @@ flutter:
   # list giving the asset and other descriptors for the font. For
   # example:
   # fonts:
-  #   - family: Schyler
+  #   - family: Heading
   #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: assets/fonts/HeadingNowTrial-06Bold.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
@@ -87,6 +87,9 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
-  #
+  #   - family: Heading 
+  #     fonts:
+  #       - assets: assets/fonts/HeadingNowTrial-06Bold.ttf
+  
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
