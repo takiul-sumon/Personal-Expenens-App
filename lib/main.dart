@@ -4,6 +4,7 @@ import 'package:personal_expenses/widget/transectionlist.dart';
 import './widget/new_usertransection.dart';
 
 import './models/transection.dart';
+import './widget/chart.dart';
 
 void main() {
   runApp(MyApp());
@@ -100,7 +101,8 @@ class _MyhomepageState extends State<Myhomepage> {
               ),
             ),
             // Transectionlist(Usertransection),
-            Transectionlist(transection)
+            Transectionlist(transection),
+           const Chart()
           ],
         ),
       ),
