@@ -32,7 +32,7 @@ class Myhomepage extends StatefulWidget {
 }
 
 class _MyhomepageState extends State<Myhomepage> {
-  final List<Transections> transection = [
+  final List<Transections> _usertransection = [
     // Transections(
     //   id: 't1',
     //   title: 'New Shoes',
@@ -40,6 +40,15 @@ class _MyhomepageState extends State<Myhomepage> {
     //   date: DateTime.now(),
     // ),
   ];
+  List<Transections> get _recenttransections {
+    return _usertransection.where((tx) {
+      return tx.date.isAfter(
+        DateTime.now().subtract(
+          Duration(days: 7),
+        ),
+      );
+    }).toList();
+  }
 
   void _addnewtransection(String txtitle, double txamount) {
     final Newtx = Transections(
@@ -48,7 +57,7 @@ class _MyhomepageState extends State<Myhomepage> {
         amount: txamount,
         date: DateTime.now());
     setState(() {
-      transection.add(Newtx);
+      _usertransection.add(Newtx);
     });
   }
 
@@ -90,6 +99,7 @@ class _MyhomepageState extends State<Myhomepage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Chart(_recenttransections),
             Container(
               width: double.infinity,
               child: Card(
@@ -101,8 +111,7 @@ class _MyhomepageState extends State<Myhomepage> {
               ),
             ),
             // Transectionlist(Usertransection),
-            Transectionlist(transection),
-           const Chart()
+            Transectionlist(_usertransection),
           ],
         ),
       ),
@@ -115,3 +124,6 @@ class _MyhomepageState extends State<Myhomepage> {
     );
   }
 }
+
+
+
