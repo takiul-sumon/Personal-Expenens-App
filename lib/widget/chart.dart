@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import '../models/transection.dart';
 import 'package:intl/intl.dart';
@@ -21,11 +19,13 @@ class Chart extends StatelessWidget {
           totalsum = recentTransections[i].amount;
         }
       }
-        print(DateFormat.E(weekday));
-        print(totalsum);
+      print(DateFormat.E().format(weekday));
+      print(totalsum);
 
-        return {'days': DateFormat.E(weekday), 'amount': totalsum.toString()};
-      
+      return {
+        'days': DateFormat.E().format(weekday).substring(0,1),
+        'amount': totalsum.toString()
+      };
     });
   }
 
@@ -38,7 +38,7 @@ class Chart extends StatelessWidget {
         margin: EdgeInsets.all(10),
         child: Row(
           children: groupTransectionlist.map((data) {
-            return Text('${data['days']}:${data['amount']}');
+            return Text('${data['day']}:${data['amount']}');
           }).toList(),
         ),
       ),

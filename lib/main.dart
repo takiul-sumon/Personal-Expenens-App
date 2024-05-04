@@ -33,20 +33,18 @@ class Myhomepage extends StatefulWidget {
 
 class _MyhomepageState extends State<Myhomepage> {
   final List<Transections> _usertransection = [
-    // Transections(
-    //   id: 't1',
-    //   title: 'New Shoes',
-    //   amount: 69.99,
-    //   date: DateTime.now(),
-    // ),
+    Transections(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 69.99,
+      date: DateTime.now(),
+    ),
   ];
   List<Transections> get _recenttransections {
     return _usertransection.where((tx) {
-      return tx.date.isAfter(
-        DateTime.now().subtract(
-          Duration(days: 7),
-        ),
-      );
+      return tx.date!.isAfter(DateTime.now().subtract(
+        Duration(days: 7),
+      ));
     }).toList();
   }
 
@@ -100,16 +98,16 @@ class _MyhomepageState extends State<Myhomepage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Chart(_recenttransections),
-            Container(
-              width: double.infinity,
-              child: Card(
-                child: Text(
-                  "Chart",
-                  style: TextStyle(
-                      fontFamily: 'Heading', fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
+            // Container(
+            //   width: double.infinity,
+            //   child: Card(
+            //     child: Text(
+            //       "Chart",
+            //       style: TextStyle(
+            //           fontFamily: 'Heading', fontWeight: FontWeight.bold),
+            //     ),
+            //   ),
+            // ),
             // Transectionlist(Usertransection),
             Transectionlist(_usertransection),
           ],
@@ -124,6 +122,3 @@ class _MyhomepageState extends State<Myhomepage> {
     );
   }
 }
-
-
-
