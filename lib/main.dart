@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:personal_expenses/widget/transectionlist.dart';
-
 import './widget/new_usertransection.dart';
-
 import './models/transection.dart';
 import './widget/chart.dart';
+
 
 void main() {
   runApp(MyApp());

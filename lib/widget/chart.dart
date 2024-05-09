@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../models/transection.dart';
 import 'package:intl/intl.dart';
+import './chart_bar.dart';
 
 class Chart extends StatelessWidget {
   final List<Transections> recentTransections;
@@ -23,9 +24,15 @@ class Chart extends StatelessWidget {
       print(totalsum);
 
       return {
-        'days': DateFormat.E().format(weekday).substring(0,1),
-        'amount': totalsum.toString()
+        'days': DateFormat.E().format(weekday).substring(0, 1),
+        'amount': (totalsum as double)
       };
+    });
+  }
+
+  double get totalspending {
+    return groupTransectionlist.fold(0.0, (sum, item) {
+      return sum + (item['amount'] as double);
     });
   }
 
@@ -38,7 +45,10 @@ class Chart extends StatelessWidget {
         margin: EdgeInsets.all(10),
         child: Row(
           children: groupTransectionlist.map((data) {
-            return Text('${data['day']}:${data['amount']}');
+            return ChartBar(
+                (data['days'] as String),
+                (data['amount'] as double),
+                ((data['amount'] as double) / totalspending));
           }).toList(),
         ),
       ),
