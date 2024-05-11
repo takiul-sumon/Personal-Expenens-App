@@ -32,7 +32,7 @@ class Chart extends StatelessWidget {
 
   double get totalspending {
     return groupTransectionlist.fold(0.0, (sum, item) {
-      return sum + (item['amount']as double);
+      return sum + (item['amount'] as double);
     });
   }
 
@@ -40,7 +40,7 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // print(groupTransectionlist),
-      
+
       child: Card(
         elevation: 6,
         margin: EdgeInsets.all(10),
@@ -49,9 +49,10 @@ class Chart extends StatelessWidget {
             return ChartBar(
                 (data['days'] as String),
                 (data['amount'] as double),
-                totalspending == 0.0 ? 0.0 : ((data['amount']  as double) / totalspending));
+                totalspending == 0.0
+                    ? 0.0
+                    : ((data['amount'] as double) / totalspending));
           }).toList(),
-          
         ),
       ),
     );

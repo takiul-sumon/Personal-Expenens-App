@@ -53,6 +53,7 @@ class _MyhomepageState extends State<Myhomepage> {
         title: txtitle,
         amount: txamount,
         date: DateTime.now());
+   
     setState(() {
       _usertransection.add(Newtx);
     });
@@ -114,6 +115,7 @@ class _MyhomepageState extends State<Myhomepage> {
           ],
         ),
       ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _startaddnewtrasnsection(context);

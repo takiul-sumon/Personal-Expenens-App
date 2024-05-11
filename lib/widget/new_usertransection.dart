@@ -1,7 +1,4 @@
-
-
 import 'package:flutter/material.dart';
-
 
 // class newtransection extends StatefulWidget {
 
@@ -34,7 +31,7 @@ class _newtransectionState extends State<newtransection> {
     }
 
     widget.addtx(entertitle, enteramount);
-   
+    Navigator.of(context).pop();
   }
 
   @override
