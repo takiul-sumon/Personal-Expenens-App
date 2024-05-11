@@ -75,10 +75,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Heading
-  #     fonts:
-  #       - asset: assets/fonts/HeadingNowTrial-06Bold.ttf
+  fonts:
+    - family: GreatVibes
+      fonts:
+        - asset: fonts/GreatVibes-Regular.ttf
+    - family: Head
+      fonts:
+        - asset: fonts/Classyvogueregular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

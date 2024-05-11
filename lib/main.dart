@@ -4,7 +4,6 @@ import './widget/new_usertransection.dart';
 import './models/transection.dart';
 import './widget/chart.dart';
 
-
 void main() {
   runApp(MyApp());
 }
@@ -15,8 +14,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Personal Expenses",
-      theme: ThemeData(backgroundColor: Colors.amberAccent),
+      // title: "Personal Expenses",
+      // theme: ThemeData(backgroundColor: Colors.amberAccent),
+
       home: Myhomepage(),
       debugShowCheckedModeBanner: false,
     );
@@ -32,16 +32,16 @@ class Myhomepage extends StatefulWidget {
 
 class _MyhomepageState extends State<Myhomepage> {
   final List<Transections> _usertransection = [
-    Transections(
-      id: 't1',
-      title: 'New Shoes',
-      amount: 69.99,
-      date: DateTime.now(),
-    ),
+    // Transections(
+    //   id: 't1',
+    //   title: 'New Shoes',
+    //   amount: 69.99,
+    //   date: DateTime.now(),
+    // ),
   ];
   List<Transections> get _recenttransections {
     return _usertransection.where((tx) {
-      return tx.date!.isAfter(DateTime.now().subtract(
+      return tx.date!.isAfter( DateTime.now().subtract(
         Duration(days: 7),
       ));
     }).toList();
@@ -80,8 +80,9 @@ class _MyhomepageState extends State<Myhomepage> {
           style: TextStyle(
               fontWeight: FontWeight.bold,
               color: Colors.white,
-              fontFamily: 'Heading'),
+              fontFamily: 'Head'),
         ),
+        centerTitle: true,
         backgroundColor: Colors.cyan,
         actions: [
           IconButton(
@@ -97,6 +98,7 @@ class _MyhomepageState extends State<Myhomepage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Chart(_recenttransections),
+           
             // Container(
             //   width: double.infinity,
             //   child: Card(
