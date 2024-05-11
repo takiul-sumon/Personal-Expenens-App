@@ -49,7 +49,7 @@ class _MyhomepageState extends State<Myhomepage> {
 
   void _addnewtransection(String txtitle, double txamount) {
     final Newtx = Transections(
-        id: DateTime.now().toString(),
+        id: DateTime.now().day.toString(),
         title: txtitle,
         amount: txamount,
         date: DateTime.now());
