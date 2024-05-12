@@ -26,52 +26,17 @@ class Transectionlist extends StatelessWidget {
               )
             : ListView.builder(
                 itemBuilder: (context, index) {
-                  return Card(
-                    child: Row(
-                      children: [
-                        Container(
-                          // height: 100,
-                          // width: 100,
-                          margin: EdgeInsets.symmetric(
-                              horizontal: 10, vertical: 15),
-                          decoration: BoxDecoration(
-                            color: Color.fromARGB(255, 253, 249, 249),
-                            border: Border.all(
-                              color: Colors.blue,
-                              width: 1,
-                            ),
-                          ),
-                          // color: Colors.deepOrange,
+                  return ListTile(
+                    leading: CircleAvatar(
+                      radius: 20,
+                      child: FittedBox(
                           child: Text(
-                            '\$ ${transections[index].amount.toString()}',
-                            style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.blue,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          padding: EdgeInsets.all(8),
-                        ),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '${transections[index].title}',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.lightBlue),
-                            ),
-                            Text(
-                              DateFormat.MMMMEEEEd().format(DateTime.now()),
-                              style: TextStyle(
-                                  fontWeight: FontWeight.w200,
-                                  color: Colors.grey),
-                            )
-                          ],
-                        )
-                      ],
+                        '${transections[index].amount}',
+                      )),
                     ),
-                    elevation: 12,
+                    title: Text('${transections[index].title}'),
+                    subtitle: Text(DateFormat.yMMMd()
+                        .format(transections[index].date as dynamic)),
                   );
                 },
                 itemCount: transections.length,
