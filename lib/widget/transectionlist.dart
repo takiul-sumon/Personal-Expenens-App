@@ -26,17 +26,20 @@ class Transectionlist extends StatelessWidget {
               )
             : ListView.builder(
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: CircleAvatar(
-                      radius: 20,
-                      child: FittedBox(
-                          child: Text(
-                        '${transections[index].amount}',
-                      )),
+                  return Card(
+                    elevation: 5,
+                    child: ListTile(
+                      leading: CircleAvatar(
+                        radius: 20,
+                        child: FittedBox(
+                            child: Text(
+                          '${transections[index].amount}',
+                        )),
+                      ),
+                      title: Text('${transections[index].title}'),
+                      subtitle: Text(DateFormat.yMMMd()
+                          .format(transections[index].date as dynamic)),
                     ),
-                    title: Text('${transections[index].title}'),
-                    subtitle: Text(DateFormat.yMMMd()
-                        .format(transections[index].date as dynamic)),
                   );
                 },
                 itemCount: transections.length,

@@ -56,6 +56,16 @@ class _newtransectionState extends State<newtransection> {
                 submitdata;
               },
             ),
+            Container(
+
+              height: 50,
+              child: Row(
+                
+                children: [
+                Text("No date Choosen"),
+                ElevatedButton(onPressed: (){}, child: Icon(Icons.add_business))
+              ],),
+            ),
             ElevatedButton(
               child: Text(
                 "Add Transection",

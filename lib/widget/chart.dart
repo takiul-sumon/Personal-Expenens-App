@@ -20,14 +20,14 @@ class Chart extends StatelessWidget {
           totalsum += recentTransections[i].amount as num;
         }
       }
-      print(DateFormat.E().format(weekday));
-      print(totalsum);
+      // print(DateFormat.E().format(weekday));
+      // print(totalsum);
 
       return {
-        'days': DateFormat.E().format(weekday).substring(0, 1).toString(),
+        'days': DateFormat.E().format(weekday).substring(0, 1),
         'amount': totalsum
       };
-    });
+    }).reversed.toList();
   }
 
   double get totalspending {
