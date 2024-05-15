@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 // class newtransection extends StatefulWidget {
 
@@ -21,6 +22,7 @@ class _newtransectionState extends State<newtransection> {
   final titlecontroller = TextEditingController();
 
   final amountcontroller = TextEditingController();
+  DateTime? selectdate;
 
   void submitdata() {
     final entertitle = titlecontroller.text;
@@ -32,6 +34,21 @@ class _newtransectionState extends State<newtransection> {
 
     widget.addtx(entertitle, enteramount);
     Navigator.of(context).pop();
+  }
+
+  void _presentdatapicker() {
+    showDatePicker(
+            context: context,
+            firstDate: DateTime(2024),
+            lastDate: DateTime.now())
+        .then((pickdate) {
+      if (pickdate == null) {
+        return;
+      }
+      setState() {
+        selectdate = pickdate;
+      }
+    });
   }
 
   @override
@@ -57,14 +74,18 @@ class _newtransectionState extends State<newtransection> {
               },
             ),
             Container(
-
-              height: 50,
+              height: 70,
               child: Row(
-                
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                Text("No date Choosen"),
-                ElevatedButton(onPressed: (){}, child: Icon(Icons.add_business))
-              ],),
+                  Text(selectdate == null
+                      ? "No date Choosen"
+                      : DateFormat.yMEd().format(selectdate as dynamic)),
+                  ElevatedButton(
+                      onPressed: _presentdatapicker,
+                      child: Icon(Icons.add_business))
+                ],
+              ),
             ),
             ElevatedButton(
               child: Text(
