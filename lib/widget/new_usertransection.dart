@@ -22,24 +22,30 @@ class _newtransectionState extends State<newtransection> {
   final titlecontroller = TextEditingController();
 
   final amountcontroller = TextEditingController();
+
   DateTime? selectdate;
 
   void submitdata() {
     final entertitle = titlecontroller.text;
     final enteramount = double.parse(amountcontroller.text);
 
-    if (entertitle.isEmpty || enteramount < 0) {
+    // if (amountcontroller == null) {
+    //   return;
+    // }
+
+    if (entertitle.isEmpty || enteramount <= 0 || selectdate == null) {
       return;
     }
 
-    widget.addtx(entertitle, enteramount);
+    widget.addtx(entertitle, enteramount, selectdate);
     Navigator.of(context).pop();
   }
 
   void _presentdatapicker() {
     showDatePicker(
             context: context,
-            firstDate: DateTime(2024),
+            initialDate: DateTime.now(),
+            firstDate: DateTime(2022),
             lastDate: DateTime.now())
         .then((pickdate) {
       if (pickdate == null) {
@@ -61,15 +67,15 @@ class _newtransectionState extends State<newtransection> {
             TextField(
               decoration: InputDecoration(label: Text("Title")),
               controller: titlecontroller,
-              onSubmitted: (value) {
+              onSubmitted: (_) {
                 submitdata();
               },
             ),
             TextField(
-              decoration: InputDecoration(label: Text("amount")),
+              decoration: InputDecoration(label: Text('amount')),
               keyboardType: TextInputType.number,
               controller: amountcontroller,
-              onSubmitted: (value) {
+              onSubmitted: (_) {
                 submitdata;
               },
             ),
@@ -80,10 +86,10 @@ class _newtransectionState extends State<newtransection> {
                 children: [
                   Text(selectdate == null
                       ? "No date Choosen"
-                      : DateFormat.yMEd().format(selectdate as dynamic)),
+                      : DateFormat.yMEd().format(selectdate as DateTime)),
                   ElevatedButton(
                       onPressed: _presentdatapicker,
-                      child: Icon(Icons.add_business))
+                      child: Icon(Icons.add_business)),
                 ],
               ),
             ),

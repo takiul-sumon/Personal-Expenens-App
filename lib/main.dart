@@ -32,12 +32,12 @@ class Myhomepage extends StatefulWidget {
 
 class _MyhomepageState extends State<Myhomepage> {
   final List<Transections> _usertransection = [
-    // Transections(
-    //   id: 't1',
-    //   title: 'New Shoes',
-    //   amount: 69.99,
-    //   date: DateTime.now(),
-    // ),
+    Transections(
+      id: 't1',
+      title: 'New Shoes',
+      amount: 69.99,
+      date: DateTime.now(),
+    ),
   ];
   List<Transections> get _recenttransections {
     return _usertransection.where((tx) {
@@ -47,7 +47,7 @@ class _MyhomepageState extends State<Myhomepage> {
     }).toList();
   }
 
-  void _addnewtransection(String txtitle, double txamount) {
+  void _addnewtransection(String txtitle, double txamount,DateTime choosedate) {
     final Newtx = Transections(
         id: DateTime.now().day.toString(),
         title: txtitle,

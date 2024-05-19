@@ -51,7 +51,7 @@ class Chart extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: groupTransectionlist.map((data) {
               return Flexible(
-                fit: FlexFit.loose,
+                fit: FlexFit.tight,
                 child: ChartBar(
                     (data["days"] as String),
                     (data['amount'] as double),

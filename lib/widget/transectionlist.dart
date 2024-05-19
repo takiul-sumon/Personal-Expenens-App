@@ -38,7 +38,7 @@ class Transectionlist extends StatelessWidget {
                       ),
                       title: Text('${transections[index].title}'),
                       subtitle: Text(DateFormat.yMMMd()
-                          .format(transections[index].date as dynamic)),
+                          .format(transections[index].date as DateTime)),
                     ),
                   );
                 },

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
+
 
 class ChartBar extends StatelessWidget {
   final String label;
@@ -40,6 +40,8 @@ class ChartBar extends StatelessWidget {
         SizedBox(
           height: 4,
         )
+        ,
+        Text(label)
       ],
     );
   }
