@@ -41,19 +41,20 @@ class _MyhomepageState extends State<Myhomepage> {
   ];
   List<Transections> get _recenttransections {
     return _usertransection.where((tx) {
-      return tx.date!.isAfter( DateTime.now().subtract(
+      return tx.date!.isAfter(DateTime.now().subtract(
         Duration(days: 7),
       ));
     }).toList();
   }
 
-  void _addnewtransection(String txtitle, double txamount,DateTime choosedate) {
+  void _addnewtransection(
+      String txtitle, double txamount, DateTime choosedate) {
     final Newtx = Transections(
         id: DateTime.now().day.toString(),
         title: txtitle,
         amount: txamount,
-        date: DateTime.now());
-   
+        date: choosedate);
+
     setState(() {
       _usertransection.add(Newtx);
     });
@@ -99,7 +100,7 @@ class _MyhomepageState extends State<Myhomepage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Chart(_recenttransections),
-           
+
             // Container(
             //   width: double.infinity,
             //   child: Card(

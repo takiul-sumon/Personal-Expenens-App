@@ -15,15 +15,15 @@ class newtransection extends StatefulWidget {
   newtransection(this.addtx);
 
   @override
-  State<newtransection> createState() => _newtransectionState();
+  State<newtransection> createState() => _NewtransectionState();
 }
 
-class _newtransectionState extends State<newtransection> {
+class _NewtransectionState extends State<newtransection> {
   final titlecontroller = TextEditingController();
 
   final amountcontroller = TextEditingController();
 
-  DateTime? selectdate;
+  DateTime? _selectdate;
 
   void submitdata() {
     final entertitle = titlecontroller.text;
@@ -33,11 +33,11 @@ class _newtransectionState extends State<newtransection> {
     //   return;
     // }
 
-    if (entertitle.isEmpty || enteramount <= 0 || selectdate == null) {
+    if (entertitle.isEmpty || enteramount <= 0 || _selectdate == null) {
       return;
+    } else {
+      widget.addtx(entertitle, enteramount, _selectdate);
     }
-
-    widget.addtx(entertitle, enteramount, selectdate);
     Navigator.of(context).pop();
   }
 
@@ -51,9 +51,9 @@ class _newtransectionState extends State<newtransection> {
       if (pickdate == null) {
         return;
       }
-      setState() {
-        selectdate = pickdate;
-      }
+      setState(() {
+        _selectdate = pickdate;
+      });
     });
   }
 
@@ -84,9 +84,9 @@ class _newtransectionState extends State<newtransection> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(selectdate == null
+                  Text(_selectdate == null
                       ? "No date Choosen"
-                      : DateFormat.yMEd().format(selectdate as DateTime)),
+                      : DateFormat.yMEd().format(_selectdate as DateTime)),
                   ElevatedButton(
                       onPressed: _presentdatapicker,
                       child: Icon(Icons.add_business)),
