@@ -71,6 +71,14 @@ class _MyhomepageState extends State<Myhomepage> {
         });
   }
 
+  void deleteTransection(String id) {
+    setState(() {
+      _usertransection.removeWhere((tx) {
+        return tx.id == id;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -112,7 +120,7 @@ class _MyhomepageState extends State<Myhomepage> {
             //   ),
             // ),
             // Transectionlist(Usertransection),
-            Transectionlist(_usertransection),
+            Transectionlist(_usertransection,deleteTransection),
           ],
         ),
       ),
