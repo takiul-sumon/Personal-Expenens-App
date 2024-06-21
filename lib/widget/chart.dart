@@ -40,6 +40,7 @@ class Chart extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       // print(groupTransectionlist),
+      height: MediaQuery.of(context).size.height * .3,
 
       child: Card(
         elevation: 6,

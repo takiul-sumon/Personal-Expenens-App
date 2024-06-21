@@ -11,7 +11,7 @@ class Transectionlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 450,
+        height: MediaQuery.of(context).size.height*0.7,
         child: transections.isEmpty
             ? Container(
                 // height: 300,
