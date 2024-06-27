@@ -38,11 +38,7 @@ class Chart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      // print(groupTransectionlist),
-      height: MediaQuery.of(context).size.height * .3,
-
-      child: Card(
+    return Card(
         elevation: 6,
         margin: EdgeInsets.all(10),
         child: Container(
@@ -63,7 +59,7 @@ class Chart extends StatelessWidget {
             }).toList(),
           ),
         ),
-      ),
+      
     );
   }
 }

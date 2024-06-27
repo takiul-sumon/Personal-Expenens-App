@@ -10,9 +10,7 @@ class Transectionlist extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        height: MediaQuery.of(context).size.height*0.7,
-        child: transections.isEmpty
+    return transections.isEmpty
             ? Container(
                 // height: 300,
                 width: 500,
@@ -45,6 +43,6 @@ class Transectionlist extends StatelessWidget {
                   );
                 },
                 itemCount: transections.length,
-              ));
+              );
   }
 }

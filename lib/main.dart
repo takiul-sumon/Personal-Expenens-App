@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:personal_expenses/widget/transectionlist.dart';
 import './widget/new_usertransection.dart';
 import './models/transection.dart';
 import './widget/chart.dart';
 
 void main() {
+  // WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
   runApp(MyApp());
 }
 
@@ -31,6 +35,7 @@ class Myhomepage extends StatefulWidget {
 }
 
 class _MyhomepageState extends State<Myhomepage> {
+  bool tap = false;
   final List<Transections> _usertransection = [
     Transections(
       id: 't1',
@@ -81,46 +86,56 @@ class _MyhomepageState extends State<Myhomepage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // MaterialApp(
-
-      appBar: AppBar(
-        title: Text(
-          "Pesonal Expenses",
-          style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
-              fontFamily: 'Head'),
-        ),
-        centerTitle: true,
-        backgroundColor: Colors.cyan,
-        actions: [
-          IconButton(
-              onPressed: () {
-                _startaddnewtrasnsection(context);
-              },
-              icon: Icon(Icons.add))
-        ],
+    final appbar = AppBar(
+      title: Text(
+        "Pesonal Expenses",
+        style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            fontFamily: 'Head'),
       ),
+      centerTitle: true,
+      backgroundColor: Colors.cyan,
+      actions: [
+        IconButton(
+            onPressed: () {
+              _startaddnewtrasnsection(context);
+            },
+            icon: Icon(Icons.add))
+      ],
+    );
+    return Scaffold(
+      appBar: appbar,
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Chart(_recenttransections),
-
-            // Container(
-            //   width: double.infinity,
-            //   child: Card(
-            //     child: Text(
-            //       "Chart",
-            //       style: TextStyle(
-            //           fontFamily: 'Heading', fontWeight: FontWeight.bold),
-            //     ),
-            //   ),
-            // ),
-            // Transectionlist(Usertransection),
-            Transectionlist(_usertransection,deleteTransection),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("Show Chart"),
+                Switch(
+                  value: tap,
+                  onChanged: (value) {
+                    setState(() {
+                      tap = value;
+                    });
+                  },
+                )
+              ],
+            ),
+           tap ? 
+            Container(
+                height: (MediaQuery.of(context).size.height -
+                        appbar.preferredSize.height -
+                        MediaQuery.of(context).padding.top) *
+                    .3,
+                child: Chart(_recenttransections)) : Container(
+                height: (MediaQuery.of(context).size.height -
+                        MediaQuery.of(context).padding.top) *
+                    .7,
+                child: Transectionlist(_usertransection, deleteTransection)),
           ],
         ),
       ),
