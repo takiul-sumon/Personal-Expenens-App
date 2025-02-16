@@ -6,7 +6,7 @@ import 'package:intl/intl.dart';
 class Transectionlist extends StatelessWidget {
   final List<Transections> transections;
   final Function deletetx;
-  const Transectionlist(this.transections,this.deletetx);
+   Transectionlist(this.transections,this.deletetx);
 
   @override
   Widget build(BuildContext context) {

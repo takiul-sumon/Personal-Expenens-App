@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       // title: "Personal Expenses",
       // theme: ThemeData(backgroundColor: Colors.amberAccent),
 
@@ -87,7 +87,7 @@ class _MyhomepageState extends State<Myhomepage> {
   @override
   Widget build(BuildContext context) {
     final appbar = AppBar(
-      title: Text(
+      title:const Text(
         "Pesonal Expenses",
         style: TextStyle(
             fontWeight: FontWeight.bold,
